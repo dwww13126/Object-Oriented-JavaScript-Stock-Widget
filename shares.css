@@ -1,0 +1,73 @@
+/* Sets the font of the widget  */
+body {
+    font: 100% arial, sans-serif;
+}
+
+.title {
+    background-color: #FFD700;
+    text-indent: 7px;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+div {
+    text-indent: 7px;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: left;
+    display: inline-block;
+    width:260px;
+}
+
+.toolbar   {
+    padding: 5px;
+}
+
+.list {
+    padding: 5px;
+}
+
+.section {
+    background-color: white;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* Is used to be able to highlight yellow the top rows to help sepearate from the results bellow */
+div.highlight {
+    background-color: #FFFF99;
+}
+
+.numeric {
+    font: 100% arial, sans-serif;
+    text-align:right;
+    float:right;
+}
+
+/* Is used to be able to setup the stockline rows and header formatting */
+span {
+    text-indent: 7px;
+    margin: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+/* Is used to be able to keep the correct spacing for the relevant spacing spans */
+.companySpacing {
+  display: table-cell;
+  width: 140px;
+}
+
+.priceSpacing{
+  display: table-cell;
+  width: 60px;
+}
+
+.changeSpacing {
+  display: table-cell;
+  width: 60px;
+}
