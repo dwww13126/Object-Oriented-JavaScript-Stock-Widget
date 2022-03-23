@@ -1,3 +1,14 @@
+#widget-container-1 {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    padding: 8px;
+    margin: 8px;
+}
+
+#stockDropdown {
+    margin: 4px;
+}
+
 /* Sets the font of the widget  */
 body {
     font: 100% arial, sans-serif;
@@ -16,10 +27,9 @@ div {
     text-indent: 7px;
     margin: 0px;
     padding-top: 5px;
-    padding-bottom: 5px;
     float: left;
     display: inline-block;
-    width:260px;
+    width: 280px;
 }
 
 .toolbar   {
@@ -36,9 +46,9 @@ div {
     padding-right: 4px;
 }
 
-/* Is used to be able to highlight yellow the top rows to help sepearate from the results bellow */
-div.highlight {
-    background-color: #FFFF99;
+/* Is used to be able to visually seperate the top rows to help sepearate from the results bellow */
+div.label {
+    font-weight: bold;
 }
 
 .numeric {

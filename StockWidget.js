@@ -101,10 +101,10 @@ function StockWidget(container_element){
       _selectRow = document.createElement("div");
       _sortButtonRow = document.createElement("div");
       _headerRow = document.createElement("div");
-      //Allows for top row divs to be coloured light yellow through the class sellector
-      _selectRow.setAttribute("class", "highlight");
-      _sortButtonRow.setAttribute("class", "highlight");
-      _headerRow.setAttribute("class", "highlight");
+      //Allows for top row divs to be bold through the class sellector
+      _selectRow.setAttribute("class", "label");
+      _sortButtonRow.setAttribute("class", "label");
+      _headerRow.setAttribute("class", "label");
       //Appends the required data to the relivent DIVs
       _selectRow.appendChild(_stockListLabel);
       _selectRow.appendChild(_dropDownStockList);
