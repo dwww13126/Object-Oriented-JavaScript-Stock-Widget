@@ -18,7 +18,7 @@ function StockWidget(containerElement){
   //to either be Company (0) or Price (1), By default is company
   var stockSort = 0;
   //Keeps track of the state for the company and price ordering
-  //Descending (true) or Ascending (false), By default is Descending
+  //Ascending (true) or Descending (false), By default is Ascending
   var companyOrdering = true;
   var priceOrdering = true;
 	//declare an inner object literal to represent the widget's UI
@@ -76,9 +76,9 @@ function StockWidget(containerElement){
           //change the ordering (Was already sorted by Price), otherwise
           //retains the prevous ordering (Was prevously sorted by Company)
           if (stockSort == 0){
-            priceOrdering = !priceOrdering;
+            companyOrdering = !companyOrdering;
             //alters the text of the button to the corresponding arrow
-            if(priceOrdering){
+            if(companyOrdering){
               this.innerHTML = ("&darr;");
             }
             else{
@@ -90,6 +90,7 @@ function StockWidget(containerElement){
           document.getElementById("priceB").setAttribute("class", "nonActive");
           stockSort = 0;
           updateSelection();
+
       });
       //Sets up the label for the company sort radio button
       companyRadioLabel = document.createElement("label");
@@ -111,9 +112,9 @@ function StockWidget(containerElement){
         //change the ordering (Was already sorted by Price), otherwise
         //retains the prevous ordering (Was prevously sorted by Company)
         if (stockSort == 1){
-          companyOrdering = !companyOrdering;
+          priceOrdering = !priceOrdering;
           //alters the text of the button to the corresponding arrow
-          if(companyOrdering){
+          if(priceOrdering){
             this.innerHTML = ("&darr;");
           }
           else{
@@ -342,10 +343,20 @@ function StockWidget(containerElement){
 
   //Allows the stocks to be sorted in alphabetical order of the company name
   var companySort = function(s1,s2){
-    //Takes the passed in stocks and coverts the company name of the stock and sets
-    //them to be lower case
-    var s1CNLower = s1.getCompany().toString().toLowerCase();
-    var s2CNLower = s2.getCompany().toString().toLowerCase();
+    var s1CNLower;
+    var s2CNLower;
+    //Checks the sort order to determine which one should be treated as company1
+    //and company 2
+    if(companyOrdering){
+      //Takes the passed in stocks and coverts the company name of the stock and sets
+      //them to be lower case
+      s1CNLower = s1.getCompany().toString().toLowerCase();
+      s2CNLower = s2.getCompany().toString().toLowerCase();
+    }
+    else{
+      s2CNLower = s1.getCompany().toString().toLowerCase();
+      s1CNLower = s2.getCompany().toString().toLowerCase();
+    }
     //Compares the lower case company names
 
     //If the 1st company is after the second company lexicographically
@@ -365,9 +376,17 @@ function StockWidget(containerElement){
 
   //Allows the stocks to be sorted by order of smallest price to largest price
   var priceSort = function(s1,s2){
-    //Takes the passed in stocks and stores the values of the
-    var s1Price = parseFloat(s1.getPrice());
-    var s2Price = parseFloat(s2.getPrice());
+    var s1Price;
+    var s2Price;
+    //Swaps the 2 values depedning on the value of priceOrdering
+    if(priceOrdering){
+      s1Price = parseFloat(s1.getPrice());
+      s2Price = parseFloat(s2.getPrice());
+    }
+    else{
+      s2Price = parseFloat(s1.getPrice());
+      s1Price = parseFloat(s2.getPrice());
+    }
     //Compares the float values with one another
 
     //If the 1st stock price is greater than the 2nd stock price
