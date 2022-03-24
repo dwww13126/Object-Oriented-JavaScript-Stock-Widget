@@ -1,4 +1,4 @@
-#widget-container-1 {
+#widgetContainer1 {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     padding: 8px;
@@ -80,4 +80,14 @@ span {
 .changeSpacing {
   display: table-cell;
   width: 60px;
+}
+
+.active {
+  border-style:inset;
+  background-color: limegreen;
+  border-radius: 3px;
+}
+
+.nonActive {
+  border-style: none;
 }
